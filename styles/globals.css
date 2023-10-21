@@ -79,7 +79,7 @@
 
 html,
 body {
-    background-color: #ffffff;
+    background-color: #0d0d0d0d;
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
     min-height: 100vh;
@@ -90,3 +90,54 @@ body {
     font-family: 'Inter', sans-serif !important;
     letter-spacing: -0.014em;
 }
+
+
+.fade-in {
+    animation-name: slide;
+    animation-duration: 1s;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateY(30%);
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-early {
+    0% {
+        transform: translateY(30%);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-late {
+    0% {
+        transform: translateY(30%);
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+button:focus {outline:0;}
+

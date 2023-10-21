@@ -34,8 +34,8 @@ function MyApp({Component, pageProps}) {
             </Head>
             <ThemeProvider attribute="class">
                 <Component {...pageProps} />
-                <footer id="footer" className="text-center text-xs font-semibold">Made for HackHarvard</footer>
             </ThemeProvider>
+            <footer id="footer" className="mt-4 text-center text-xs font-semibold">© HackHarvard 2023</footer>
         </div>
     )
 }
