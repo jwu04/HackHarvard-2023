@@ -9,7 +9,6 @@ const SB = () => {
         const fetchSB = async () => {
                 await axios.get('/api/getSB').then(res => {
                     setMem(JSON.stringify(res.data));
-
                 }).catch(err => {
                     console.error(err)
                 });
