@@ -5,14 +5,14 @@ const supabaseUrl = process.env.SUPABASE_URL
 const supabaseKey = process.env.SUPABASE_ANON_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
 
-const saveMem = async (req, res) => {
+const saveUser = async (req, res) => {
     
     const ipAddress = requestIp.getClientIp(req);
     
     const { data, error } = await supabase
-    .from('memories')
+    .from('users')
     .insert([
-    { ip: ipAddress, mem_caption: req.body.caption, mem_img: req.body.img},
+    { ip: ipAddress, name: req.body.name},
     ])
     .select()
 
@@ -24,4 +24,4 @@ const saveMem = async (req, res) => {
     }
 }
 
-export default saveMem;
+export default saveUser;

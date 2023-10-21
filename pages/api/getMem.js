@@ -5,7 +5,7 @@ const supabaseUrl = process.env.SUPABASE_URL
 const supabaseKey = process.env.SUPABASE_ANON_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
 
-const supabaseGet = async (req, res) => {
+const getMemories = async (req, res) => {
     const ipAddress = requestIp.getClientIp(req);
     
     const { data, error } = await supabase
@@ -21,4 +21,4 @@ const supabaseGet = async (req, res) => {
     }
 }
 
-export default supabaseGet;
+export default getMemories;

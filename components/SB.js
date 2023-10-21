@@ -4,36 +4,61 @@ import axios from 'axios';
 const SB = () => {
 
     const [memories, setMem] = useState('UNKNOWN');
+    const [user, setUser] = useState('UNKNOWN');
+
 
     useEffect(() => {
-        // const fetchMem = async () => {
-        //         await axios.get('/api/getMem').then(res => {
-        //             setMem(JSON.stringify(res.data));
-        //         }).catch(err => {
-        //             console.error(err)
-        //         });
+        const fetchMem = async () => {
+                await axios.get('/api/getMem').then(res => {
+                    setMem(JSON.stringify(res.data));
+                }).catch(err => {
+                    console.error(err)
+                });
+        };
+
+        fetchMem();
+
+        // const postMem = async () => {
+        //     await axios.post('/api/saveMem', { 
+        //         caption: 'here\'s a caption!! ', 
+        //         mem_img: "" 
+        //     }).then(res => {
+        //         setMem(JSON.stringify(res.data));
+        //     }).catch(err => {
+        //         console.error(err)
+        //     });
         // };
 
-        // fetchMem();
+        // postMem();
+        
+        const fetchUsers = async () => {
+                await axios.get('/api/getUser').then(res => {
+                    setUser(JSON.stringify(res.data));
+                }).catch(err => {
+                    console.error(err)
+                });
+        };
 
-        const postMem = async () => {
-            await axios.post('/api/saveMem', { 
-                caption: 'here\'s a caption!! ', 
-                img: "" 
+        fetchUsers();
+
+        const postUser = async () => {
+            await axios.post('/api/saveUser', { 
+                name: 'Jon'
             }).then(res => {
-                setMem(JSON.stringify(res.data));
+                setUser(JSON.stringify(res.data));
             }).catch(err => {
                 console.error(err)
             });
         };
 
-        postMem();
+        postUser();
+
     }, []);
 
     return (
         <div>
-            <span className="inter">Hello, this is a test message.</span>
-            <span className="inter">Your memories are {memories}</span>
+            <span className="inter">Hello,{user} this is a test message.</span>
+            <span className="inter">Your memories are {memories}.</span>
         </div>
     )
 
