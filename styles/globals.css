@@ -79,11 +79,14 @@
 
 html,
 body {
-    background-color: #0d0d0d0d;
+    background-color: rgb(227, 226, 226);
+    color: rgb(0, 0, 0);
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
     min-height: 100vh;
     position: relative;
+    scale: 130%;
+    transform: translateY(100px);
 }
 
 .inter {
@@ -140,4 +143,13 @@ body {
 }
 
 button:focus {outline:0;}
+input:focus {outline:0;}
 
+a {
+    color: deepskyblue;
+    transition: color 200ms; /* Add a transition for the 'color' property over 200ms */
+}
+
+a:hover {
+    color: darkorange;
+}

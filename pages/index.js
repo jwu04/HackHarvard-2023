@@ -1,10 +1,10 @@
-import About from "../components/About.js"
+import QuizState from "../components/states/QuizState.js"
 import SB from "../components/SB.js"
 
 export default function Home() {
     return (
         <>
-            <About/>
+            <QuizState/>
             {/*<SB/>*/}
         </>
     )

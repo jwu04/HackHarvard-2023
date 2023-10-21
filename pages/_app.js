@@ -2,6 +2,7 @@ import Head from 'next/head'
 import {ThemeProvider} from 'next-themes'
 import '../styles/globals.css'
 import React from "react";
+import Link from "next/link";
 
 function MyApp({Component, pageProps}) {
     return (
@@ -35,7 +36,7 @@ function MyApp({Component, pageProps}) {
             <ThemeProvider attribute="class">
                 <Component {...pageProps} />
             </ThemeProvider>
-            <footer id="footer" className="mt-4 text-center text-xs font-semibold">© HackHarvard 2023</footer>
+            <footer id="footer" className="mt-4 text-center text-xs font-semibold"><Link href={"https://github.com/jwu04/HackHarvard-2023"}>© HackHarvard 2023</Link></footer>
         </div>
     )
 }

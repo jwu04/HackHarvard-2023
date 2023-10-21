@@ -1,7 +1,7 @@
 import React from 'react';
 import Emoji from "./Emoji";
 
-const CustomMemoryButton = ({ emoji, caption, onClick }) => {
+const QuizSelection = ({ emoji, caption, onClick }) => {
     return (
         <button className="border border-gray-700 rounded-xl px-6 py-1 transition duration-200 ease-in-out transform hover:scale-105" onClick={onClick}>
             <Emoji emoji={emoji} modifiers='w-6 inline-flex'/>
@@ -10,4 +10,4 @@ const CustomMemoryButton = ({ emoji, caption, onClick }) => {
     );
 };
 
-export default CustomMemoryButton;
+export default QuizSelection;
