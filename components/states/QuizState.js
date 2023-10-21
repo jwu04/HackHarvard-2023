@@ -52,7 +52,7 @@ const QuizState = () => {
         },
     ];
 
-    const [selectedAnswers, setSelectedAnswers] = useState({});
+    const [selectedAnswers, setSelectedAnswers] = useState([]);
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
