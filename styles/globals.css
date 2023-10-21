@@ -85,8 +85,6 @@ body {
     scroll-behavior: smooth;
     min-height: 100vh;
     position: relative;
-    scale: 130%;
-    transform: translateY(100px);
 }
 
 .inter {

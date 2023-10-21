@@ -5,7 +5,7 @@ import DashboardState from "../components/states/DashboardState";
 export default function Home() {
     return (
         <>
-            <DashboardState/>
+            <QuizState/>
             {/*<SB/>*/}
         </>
     )

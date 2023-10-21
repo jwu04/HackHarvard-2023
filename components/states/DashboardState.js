@@ -1,46 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import Fade from "../Fade";
 import CustomMemoryButton from "../QuizSelection";
+import Link from "next/link";
 
 const DashboardState = () => {
+    const memories = [
+        { description: "Acidic", img: "memory1.jpg" },
+        { description: "Shrooms", img: "memory2.jpg" },
+        { description: "Bathed", img: "memory3.jpg" },
+        { description: "In", img: "memory4.jpg" },
+        { description: "Chocolate", img: "memory5.jpg" },
+        { description: "Milk", img: "memory6.jpg" }
+    ];
+
     return (
-        <div>
-            <div className="mt-12 text-center">
-                {showAnimation ? (
-                    <div>
-                        <Fade type="late" duration="2s">
-                            <p className="font-bold text-xl">Let's get started...</p>
-                            <Fade type="late" duration="3s">
-                                <p>Think of a fondful memory... Think about it for a long time.</p>
-                                <Fade type="late" duration="9s">
-                                    <div className="mt-8">
-                                        <p>{currentQuestion.question}</p>
-                                        <div className="flex justify-center gap-4">
-                                            {currentQuestion.answerChoices.map((choice, index) => (
-                                                <CustomMemoryButton
-                                                    key={index}
-                                                    emoji={choice.emoji}
-                                                    caption={choice.value}
-                                                    onClick={() => handleNextQuestion(choice)}
-                                                />
-                                            ))}
-                                        </div>
-                                    </div>
-                                </Fade>
-                            </Fade>
-                        </Fade>
+        <>
+            <Link href="/quiz"><p className="text-xl font-bold">Click to take quiz and add memory</p></Link>
+            <div className="flex gap-6">
+                {memories.map((memory, index) => (
+                    <div key={index} className="border border-red-400 rounded-md font-bold text-lg p-2 px-6 gap-3">
+                        Memory #{index + 1} - {memory.description}
                     </div>
-                ) : (
-                    <div>
-                        <p className="inter font-extrabold">CareYaya, where your &nbsp;<span
-                            className="underline">memory</span>&nbsp; comes first.</p>
-                        <button onClick={toggleAnimation}
-                                className="border border-green-800 rounded-xl px-4 transition duration-200 ease-in-out transform hover:scale-105">
-                            <p className="text-sm font-medium">Let's go.</p></button>
-                    </div>
-                )}
+                ))}
             </div>
-        </div>
+        </>
     )
 }
 
