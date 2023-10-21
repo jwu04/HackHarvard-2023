@@ -3,6 +3,7 @@ import {ThemeProvider} from 'next-themes'
 import '../styles/globals.css'
 import React from "react";
 import Link from "next/link";
+import Navbar from "../components/Navbar";
 
 function MyApp({Component, pageProps}) {
     return (
