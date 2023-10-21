@@ -34,7 +34,31 @@ function MyApp({Component, pageProps}) {
             </Head>
             <ThemeProvider attribute="class">
                 <Component {...pageProps} />
-                <footer id="footer" className="text-center text-xs font-semibold">Made for HackHarvard</footer>
+                  <div>
+                        <div class="flex justify-center bigText">
+                              <h1>Close your eyes and think of a deep fond memory…</h1>
+                        </div>
+                        <div class="flex justify-center">
+                              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                    Try Now
+                              </button>
+                        </div>
+                  </div>
+
+                        {/* <div class="h-56 grid grid-cols-3 gap-4 content-normal ...">
+                              <div>01</div>
+                              <div>02</div>
+                              <div>03</div>
+                              <div>04</div>
+                              <div>05</div>
+                        </div> */}
+                        {/* <div class="bigText">
+                              <h1>Close your eyes and think of a deep fond memory…</h1>
+                              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    Try Now
+                              </button>
+                        </div> */}
+                {/* <footer id="footer" className="inter text-center text-xs font-semibold">Made for HackHarvard</footer> */}
             </ThemeProvider>
         </div>
     )
