@@ -9,7 +9,7 @@ const supabaseAuth = async (req, res) => {
     const { data, error } = await supabase
         .from('memories')
         .insert([
-            { name: 'hehea' },
+            { name: '' },
         ])
         .select()
 
