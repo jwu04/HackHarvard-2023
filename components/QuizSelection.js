@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import Emoji from "./Emoji";
 
 const QuizSelection = ({ emoji, caption, onClick }) => {
