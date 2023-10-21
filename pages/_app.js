@@ -33,6 +33,7 @@ function MyApp({Component, pageProps}) {
                       href="https://fonts.cdnfonts.com/s/19795/Inter-Black.woff"
                       as="font" type="font/woff" crossOrigin/>
             </Head>
+            <Navbar />
             <ThemeProvider attribute="class">
                 <Component {...pageProps} />
             </ThemeProvider>

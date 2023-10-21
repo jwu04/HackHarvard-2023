@@ -15,7 +15,7 @@ const DashboardState = () => {
 
     return (
         <>
-            <Link href="/quiz"><p className="text-xl font-bold">Click to take quiz and add memory</p></Link>
+            <Link href="/quiz" className="p-4"><span className="text-xl font-bold">Write Memory</span></Link>
             <div className="flex gap-6">
                 {memories.map((memory, index) => (
                     <div key={index} className="border border-red-400 rounded-md font-bold text-lg p-2 px-6 gap-3">

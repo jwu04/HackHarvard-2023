@@ -52,14 +52,14 @@ const QuizState = () => {
         },
     ];
 
-    const [selectedAnswers, setSelectedAnswers] = useState([]);
+    const [selectedAnswers, setSelectedAnswers] = useState({});
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
     const handleNextQuestion = (question, choice) => {
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
-            const updatedAnswers = [...selectedAnswers, '(Q:' + question + ' | A:' + choice.value + ')'];
+            const updatedAnswers = [...selectedAnswers, {Q: question, A: choice.value}];
             setSelectedAnswers(updatedAnswers);
         } else {
             // handling end of multiple choice questionnaire
