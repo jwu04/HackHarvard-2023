@@ -20,8 +20,8 @@ const SB = () => {
 
         // const postMem = async () => {
         //     await axios.post('/api/saveMem', { 
-        //         caption: 'here\'s a caption!! ', 
-        //         mem_img: "" 
+        //         description: [], 
+        //         img: "" 
         //     }).then(res => {
         //         setMem(JSON.stringify(res.data));
         //     }).catch(err => {

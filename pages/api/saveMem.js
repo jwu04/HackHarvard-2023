@@ -12,7 +12,7 @@ const saveMem = async (req, res) => {
     const { data, error } = await supabase
     .from('memories')
     .insert([
-    { ip: ipAddress, mem_caption: req.body.caption, mem_img: req.body.img},
+    { ip: ipAddress, description: req.body.description, img: req.body.img},
     ])
     .select()
 
