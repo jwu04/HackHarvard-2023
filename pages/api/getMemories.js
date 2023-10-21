@@ -1,21 +1,24 @@
 import { createClient } from '@supabase/supabase-js'
+const requestIp = require('request-ip');
 
 const supabaseUrl = process.env.SUPABASE_URL
 const supabaseKey = process.env.SUPABASE_ANON_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
 
-const supabaseAuth = async (req, res) => {
-
+const supabaseGet = async (req, res) => {
+    const ipAddress = requestIp.getClientIp(req);
+    
     const { data, error } = await supabase
         .from('memories')
-        .select()
+        .select('*')
+        .eq('ip', ipAddress)
 
     if (error) {
-        res.status(200).json({ success: JSON.stringify(error)})
+        res.status(404).json({ success: 'false' })
         return
     } else {
-        res.status(200).json({ success: 'true' })
+        res.status(200).json(data)
     }
 }
 
-export default supabaseAuth;
+export default supabaseGet;

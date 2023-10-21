@@ -6,15 +6,28 @@ const SB = () => {
     const [memories, setMem] = useState('UNKNOWN');
 
     useEffect(() => {
-        const fetchSB = async () => {
-                await axios.get('/api/getSB').then(res => {
-                    setMem(JSON.stringify(res.data));
-                }).catch(err => {
-                    console.error(err)
-                });
+        // const fetchMem = async () => {
+        //         await axios.get('/api/getMem').then(res => {
+        //             setMem(JSON.stringify(res.data));
+        //         }).catch(err => {
+        //             console.error(err)
+        //         });
+        // };
+
+        // fetchMem();
+
+        const postMem = async () => {
+            await axios.post('/api/saveMem', { 
+                caption: 'here\'s a caption!! ', 
+                img: "" 
+            }).then(res => {
+                setMem(JSON.stringify(res.data));
+            }).catch(err => {
+                console.error(err)
+            });
         };
-[]
-        fetchSB();
+
+        postMem();
     }, []);
 
     return (
