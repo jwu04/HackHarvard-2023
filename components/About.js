@@ -6,12 +6,11 @@ const About = () => {
 
     useEffect(() => {
         const fetchIpAddress = async () => {
-            try {
-                const response = await axios.get('/api/getIP'); // Update the URL to match your API endpoint.
-                setIp(response.data.ipOfUser);
-            } catch (error) {
-                console.error('Error fetching IP:', error);
-            }
+                await axios.get('/api/getIP').then(res => {
+                    setIp(res.data.ipOfUser);
+                }).catch(err => {
+                    console.error(err)
+                });
         };
 
         fetchIpAddress();

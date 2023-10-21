@@ -8,7 +8,7 @@ const SB = () => {
     useEffect(() => {
         const fetchSB = async () => {
                 await axios.get('/api/getSB').then(res => {
-                    setMem(string(res.data));
+                    setMem(JSON.stringify(res.data));
                     
                 }).catch(err => {
                     console.error(err)
