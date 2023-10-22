@@ -6,6 +6,7 @@ import QuizInput from "../QuizInput";
 
 const QuizState = () => {
     const [ip, setIp] = useState('UNKNOWN');
+    const [imageData, setImageData] = useState(null);
 
     useEffect(() => {
         const fetchIpAddress = async () => {
@@ -114,6 +115,7 @@ const QuizState = () => {
             prompt: desc
         }).then(res => {
             console.log(res.data)
+            setImageData(res.data[0]);
             postMem(desc, res.data[0])
         }).catch(err => {
             console.error(err)
@@ -173,6 +175,13 @@ const QuizState = () => {
                             <p className="px-6 py-0.5 text-xl font-bold">Ready</p></button>
                     </div>
                 )}
+                    <div>
+                {imageData && (
+                    <div className='mt-12 text-center sec-body'>
+                    <img src={imageData} alt="Generated Image" />
+                    </div>
+                )}
+                </div>
             </div>
         </div>
     )
