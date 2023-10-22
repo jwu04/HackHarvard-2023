@@ -35,7 +35,8 @@ Once you have both keys, navigate to the `next.config.js` file and add correspon
 const nextConfig = {
   ...
   env: {
-    REPLICATE_API_TOKEN: "r8_*************************************"
+    REPLICATE_API_TOKEN: "r8_*************************************",
+    OPENAI_API_KEY: "sk-************************************************"
   }
 }
 ```
