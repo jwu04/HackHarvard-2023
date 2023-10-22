@@ -114,7 +114,7 @@ const QuizState = () => {
             prompt: desc
         }).then(res => {
             console.log(res.data)
-            postMem(desc, res.data)
+            postMem(desc, res.data[0])
         }).catch(err => {
             console.error(err)
         });
