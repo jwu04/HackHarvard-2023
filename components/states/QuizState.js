@@ -36,11 +36,11 @@ const QuizState = () => {
             ],
         },
         {
-            question: 'Tell me more about it.',
+            question: 'What kind of memory is this?',
             answerChoices: [
-                {emoji: '❓', value: 'I feel happy about it'},
-                {emoji: '❓', value: 'I\'m uncertain'},
-                {emoji: '❓', value: 'I still have to think about it'},
+                {emoji: '❓', value: 'Happy'},
+                {emoji: '❓', value: 'Sad'},
+                {emoji: '❓', value: 'Uncertain'},
             ],
         },
         {
@@ -52,14 +52,14 @@ const QuizState = () => {
         },
     ];
 
-    const [selectedAnswers, setSelectedAnswers] = useState({});
+    const [selectedAnswers, setSelectedAnswers] = useState([]);
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
     const handleNextQuestion = (question, choice) => {
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
-            const updatedAnswers = [...selectedAnswers, {Q: question, A: choice.value}];
+            const updatedAnswers = [...selectedAnswers, {q: question, a: choice.value}];
             setSelectedAnswers(updatedAnswers);
         } else {
             // handling end of multiple choice questionnaire
@@ -75,13 +75,27 @@ const QuizState = () => {
 
     const currentQuestion = questions[currentQuestionIndex];
 
-    const [savedAIValue, setSavedAIValue] = useState(''); // Initialize state for the saved value
+
+    const [nextQuestion, setNextQuestion] = useState([]); // Initialize state for the next questions
 
     const handleSave = (value) => {
-        setSavedAIValue(value); // Update the state in the parent component with the input value
+        const updatedAnswers = [...selectedAnswers, {q: "Tell me more about it.", a: value}];
+            setSelectedAnswers(updatedAnswers); // Update the state in the parent component with the input value
         setSubmittedAIAnalysis(true);
-        // now send selectedAnswers and savedValue to /api route that will perform an analysis with ChatGPT
     };
+
+    // now send selectedAnswers to /api route that will perform an analysis with ChatGPT
+    useEffect(() => {
+        const fetchQ = async () => {
+            await axios.post('/api/getQuestions',{answers: selectedAnswers}).then(res => {
+                setNextQuestion(JSON.stringify(res.data.message));
+                console.log(nextQuestion)
+            }).catch(err => {
+                console.error(err)
+            });
+        }
+        fetchQ();
+    }, [submittedAIAnalysis]);
 
     return (
         <div>
@@ -94,9 +108,9 @@ const QuizState = () => {
                                 <p>Think of a fondful memory... Think about it for a long time.</p>
                                 <Fade type="late" duration="9s">
                                     <div className="mt-8">
-                                        {!submittedAIAnalysis && currentQuestionIndex >= questions.length ? <QuizInput placeholder="Please, tell me more about this character" onSave={handleSave} />
+                                        {!submittedAIAnalysis && currentQuestionIndex >= questions.length ? <QuizInput placeholder="Please, tell me more." onSave={handleSave} />
                                             :
-                                            submittedAIAnalysis ? <span>You are done. Memory added</span> :
+                                            submittedAIAnalysis ? <span>{nextQuestion}</span> :
                                             <>
                                             {currentQuestion.question}
                                                 <div className="flex justify-center gap-4">
