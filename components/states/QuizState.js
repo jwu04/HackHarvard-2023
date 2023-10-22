@@ -61,6 +61,7 @@ const QuizState = () => {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
             const updatedAnswers = [...selectedAnswers, {q: question, a: choice.value}];
             setSelectedAnswers(updatedAnswers);
+            console.log(selectedAnswers)
         } else {
             // handling end of multiple choice questionnaire
             if (choice.type === 'CONTINUE') {
@@ -80,6 +81,22 @@ const QuizState = () => {
     const handleSave = async (value) => {
         setSubmittedAIAnalysis(true);
         submit([...selectedAnswers, {q: "Tell me more about this.", a: value}])
+        console.log(selectedAnswers)
+
+    };
+
+    const handleSaveQ = async (value) => {
+        if (selectedAnswers.length == 3) setSubmittedAIAnalysis(false);
+        else 
+        {
+            setSelectedAnswers([...selectedAnswers, {q: nextQuestion, a: value}])
+            submit([...selectedAnswers, {q: nextQuestion, a: value}])
+            setSubmittedAIAnalysis(true);
+        console.log(selectedAnswers)
+
+        }
+
+
     };
 
     // now send selectedAnswers to /api route that will perform an analysis with ChatGPT
@@ -102,9 +119,11 @@ const QuizState = () => {
                                 <p>Think of a fondful memory... Think about it for a long time.</p>
                                 <Fade type="late" duration="9s">
                                     <div className="mt-8">
-                                        {!submittedAIAnalysis && currentQuestionIndex >= questions.length ? <QuizInput placeholder="Please, tell me more." onSave={handleSave} />
-                                            :
-                                            submittedAIAnalysis ? <span>{nextQuestion}</span> :
+                                        {!submittedAIAnalysis && currentQuestionIndex >= questions.length ? 
+                                        <QuizInput placeholder="Please, tell me more." onSave={handleSave} />
+                                            : submittedAIAnalysis ? 
+                                            <>{nextQuestion}<QuizInput placeholder="..." value="" onSave={handleSaveQ} /></> 
+                                            : 
                                             <>
                                             {currentQuestion.question}
                                                 <div className="flex justify-center gap-4">
