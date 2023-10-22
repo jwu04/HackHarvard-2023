@@ -41,17 +41,13 @@ const nextConfig = {
 }
 ```
 ### Build and Start
-Once you have done that, make sure that you can compile the program
+1. Once you have done that, make sure that you can compile the program
 ```shell
 $ npm run build
 ```
-Depending on what you want, you can either run it in development or production
+2. Then run the following:
 ```shell
 $ npm run dev
-```
-Or
-```shell
-npm run start
 ```
 ### Launch Site
 Once that is done, the website should be found at: [localhost:3000/](localhost:3000/). 
