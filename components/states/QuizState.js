@@ -39,15 +39,15 @@ const QuizState = () => {
         {
             question: 'What kind of memory is this?',
             answerChoices: [
-                {emoji: '❓', value: 'Happy'},
-                {emoji: '❓', value: 'Sad'},
-                {emoji: '❓', value: 'Uncertain'},
+                {emoji: '😊', value: 'Happy'},
+                {emoji: '😔', value: 'Sad'},
+                {emoji: '😕', value: 'Uncertain'},
             ],
         },
         {
             question: 'Any specific details you want to share?',
             answerChoices: [
-                {type: 'CONTINUE', emoji: '💬', value: 'Let\'s continue to chat.'},
+                {type: 'CONTINUE', emoji: '💬', value: 'I\'d love to talk more.'},
                 {type: 'END', emoji: '🤫', value: 'I\'ve said enough.'},
             ],
         },
