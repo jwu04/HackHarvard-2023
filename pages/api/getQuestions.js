@@ -32,11 +32,11 @@ const getQs = async (req, res) => {
         })
         const data = await response.json()
 
-        // Now just straight send to supabase
-        await axios.post('/api/saveMem', { 
-            description: 'andgasdgasd',
-            img: 'none'
-        })
+        // // Now just straight send to supabase
+        // await axios.post('/api/saveMem', { 
+        //     description: 'andgasdgasd',
+        //     img: 'none'
+        // })
         res.status(200).json({message: data})
     } catch (error) {
         res.status(500).json({ error: error.message })

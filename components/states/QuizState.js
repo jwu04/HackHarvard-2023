@@ -102,6 +102,18 @@ const QuizState = () => {
     const submit = (answersAI) => {
         axios.post('/api/getQuestions', {answers: JSON.parse(JSON.stringify(answersAI))}).then(res => {
             setNextQuestion(res.data.message.choices[0].message.content);
+            postMem(res.data.message.choices[0].message.content)
+        }).catch(err => {
+            console.error(err)
+        });
+    };
+
+    const postMem = async (desc) => {
+        await axios.post('/api/saveMem', { 
+            description: desc, 
+            img: "" 
+        }).then(res => {
+            
         }).catch(err => {
             console.error(err)
         });

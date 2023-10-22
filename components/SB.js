@@ -18,18 +18,18 @@ const SB = () => {
 
         fetchMem();
 
-        // const postMem = async () => {
-        //     await axios.post('/api/saveMem', { 
-        //         description: [], 
-        //         img: "" 
-        //     }).then(res => {
-        //         setMem(JSON.stringify(res.data));
-        //     }).catch(err => {
-        //         console.error(err)
-        //     });
-        // };
+        const postMem = async () => {
+            await axios.post('/api/saveMem', { 
+                description: "", 
+                img: "" 
+            }).then(res => {
+                setMem(JSON.stringify(res.data));
+            }).catch(err => {
+                console.error(err)
+            });
+        };
 
-        // postMem();
+        postMem();
         
         const fetchUsers = async () => {
                 await axios.get('/api/getUser').then(res => {
