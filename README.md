@@ -13,19 +13,19 @@ We're not only exploring new and exciting territories in science and technology,
 - Make sure you have Node.js installed on your device. Link to installation can be found [here]( https://nodejs.org/en/download).
 ## Launch Codes
 ### Clone Repository
-Clone this repjository to your computer with the HTTPs link:
+Clone this repository to your computer with the HTTPs link:
 ```shell
-$ https://github.com/jwu04/HackHarvard-2023.git
+https://github.com/jwu04/HackHarvard-2023.git
 ```
 ### Change Directory
 Change your directory to the one that this project is located in:
 ```shell
-$ cd HackHarvard-2023
+cd HackHarvard-2023
 ```
 ### Install Node.js Dependencies
 Install all the required Node.js Dependency in order for this to work
 ```shell
-$ npm install
+npm install
 ```
 ### Get API Keys
 You will need two API keys, one from [Replicate](https://replicate.com/explore) and one from [OpenAI](https://openai.com/).  
@@ -41,17 +41,13 @@ const nextConfig = {
 }
 ```
 ### Build and Start
-Once you have done that, make sure that you can compile the program
+1. Once you have done that, make sure that you can compile the program
 ```shell
-$ npm run build
+npm run build
 ```
-Depending on what you want, you can either run it in development or production
+2. Then run the following:
 ```shell
-$ npm run dev
-```
-Or
-```shell
-npm run start
+npm run dev
 ```
 ### Launch Site
 Once that is done, the website should be found at: [localhost:3000/](localhost:3000/). 
