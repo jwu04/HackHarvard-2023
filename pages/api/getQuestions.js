@@ -1,5 +1,3 @@
-import { create } from 'openai'
-
 const getQs = async (req, res) => {
     const answers = req.body.answers
 
@@ -12,7 +10,7 @@ const getQs = async (req, res) => {
     }
 
     prompt += "\n\nWhat is one potential question you could ask this person to hear more about their memory? Start it off by saying, in a counselor's voice, 'So I've gathered that you (context) and (context)-' then delve deeper into one final question to complete your psychoanalysis. However, please be specific, especially pertaining to the last answer that they gave. Make them feel that you care. Be concise."
-    const apiKey = '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'
+    const apiKey = process.env.OPENAI_API_KEY
     const url = 'https://api.openai.com/v1/chat/completions'
 
     const body = JSON.stringify({
