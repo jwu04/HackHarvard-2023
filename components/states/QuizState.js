@@ -101,17 +101,29 @@ const QuizState = () => {
     // now send selectedAnswers to /api route that will perform an analysis with ChatGPT
     const submit = (answersAI) => {
         axios.post('/api/getQuestions', {answers: JSON.parse(JSON.stringify(answersAI))}).then(res => {
-            setNextQuestion(res.data.message.choices[0].message.content);
-            postMem(res.data.message.choices[0].message.content)
+            let prompt = res.data.message.choices[0].message.content
+            setNextQuestion(prompt);
+            fetchImg(prompt)
         }).catch(err => {
             console.error(err)
         });
     };
 
-    const postMem = async (desc) => {
+    const fetchImg = async (desc) => {
+        await axios.post('/api/getImg', { 
+            prompt: desc
+        }).then(res => {
+            console.log(res.data)
+            postMem(desc, res.data)
+        }).catch(err => {
+            console.error(err)
+        });
+    };
+
+    const postMem = async (desc, img) => {
         await axios.post('/api/saveMem', { 
             description: desc, 
-            img: "" 
+            img: img
         }).then(res => {
             
         }).catch(err => {
