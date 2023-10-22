@@ -15,12 +15,15 @@ const DashboardState = () => {
 
     return (
         <>
-            <div className="flex gap-6">
-                {memories.map((memory, index) => (
-                    <div key={index} className="border border-red-400 rounded-md font-bold text-lg p-2 px-6 gap-3">
-                        Memory #{index + 1} - {memory.description}
-                    </div>
-                ))}
+            <div className="sec-body">
+                <div className="flex flex-wrap gap-8">
+                    {memories.map((memory, index) => (
+                        <div key={index} className="border border-red-400 rounded-md font-bold text-lg p-2 px-6 mb-3">
+                            Memory #{index + 1} - {memory.description}
+                        </div>
+                    ))}
+                </div>
+
             </div>
         </>
     )

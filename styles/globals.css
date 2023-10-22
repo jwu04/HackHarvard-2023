@@ -87,6 +87,11 @@ body {
     position: relative;
 }
 
+.sec-body {
+    margin: 0 auto;
+    width: 70%;
+}
+
 .inter {
     font-family: 'Inter', sans-serif !important;
     letter-spacing: -0.014em;
