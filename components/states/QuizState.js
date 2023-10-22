@@ -79,24 +79,20 @@ const QuizState = () => {
     const [nextQuestion, setNextQuestion] = useState([]); // Initialize state for the next questions
 
     const handleSave = (value) => {
-        const updatedAnswers = [...selectedAnswers, {q: "Tell me more about it.", a: value}];
-            setSelectedAnswers(updatedAnswers); // Update the state in the parent component with the input value
+        setSelectedAnswers([...selectedAnswers, {q: "Tell me more about this.", a: value}]); // Update the state in the parent component with the input value
         setSubmittedAIAnalysis(true);
+        submit()
     };
 
     // now send selectedAnswers to /api route that will perform an analysis with ChatGPT
-    useEffect(() => {
-        const fetchQ = async () => {
-            await axios.post('/api/getQuestions',{answers: selectedAnswers}).then(res => {
-                setNextQuestion(JSON.stringify(res.data.message));
-                console.log("q")
-                console.log(nextQuestion)
-            }).catch(err => {
-                console.error(err)
-            });
-        }
-        fetchQ();
-    }, [submittedAIAnalysis]);
+    const submit = () => {
+        console.log(selectedAnswers)
+        axios.post('/api/getQuestions', {answers: selectedAnswers}).then(res => {
+            setNextQuestion(res.data.message.choices[0].message.content);
+        }).catch(err => {
+            console.error(err)
+        });
+    };
 
     return (
         <div>
