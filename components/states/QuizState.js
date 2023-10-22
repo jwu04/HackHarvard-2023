@@ -80,7 +80,7 @@ const QuizState = () => {
 
     const handleSave = (value) => {
         setSelectedAnswers([...selectedAnswers, {q: "Tell me more about this.", a: value}]); // Update the state in the parent component with the input value
-        setSubmittedAIAnalysis(true);
+        setSubmittedAIAnalysis(true);   
         submit()
     };
 
@@ -88,6 +88,7 @@ const QuizState = () => {
     const submit = () => {
         console.log(selectedAnswers)
         axios.post('/api/getQuestions', {answers: selectedAnswers}).then(res => {
+            console.log(res)
             setNextQuestion(res.data.message.choices[0].message.content);
         }).catch(err => {
             console.error(err)

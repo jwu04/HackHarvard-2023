@@ -11,7 +11,7 @@ const getPrompt = async (req, res) => {
     for (let i = 0; i < answers.length; i++) {
         prompt += `\nQ: ${answers[i].q} \nA: ${answers[i].a}`
     }
-
+    console.log(prompt)
     const diffPrompt = await openai.completions.create({
         model: 'gpt-3.5-turbo-instruct',
         prompt: prompt
