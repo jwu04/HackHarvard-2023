@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const getQs = async (req, res) => {
     const answers = req.body.answers
 
@@ -9,7 +11,7 @@ const getQs = async (req, res) => {
         prompt += `\nQ: ${answers[i].q} \nA: ${answers[i].a}`
     }
 
-    prompt += "\n\nWhat is one potential question you could ask this person to hear more about their memory? Start it off by saying, in a counselor's voice, 'So I've gathered that you (context) and (context)-' then delve deeper into one final question to complete your psychoanalysis. However, please be specific, especially pertaining to the last answer that they gave. Make them feel that you care. Be concise."
+    prompt += "\n\nHow would you articulate a description of this story, this narration of one's memory? Be concise, this will be used for a description box of the memory that was described to you. It should be a concise description of the story, short enough to summarize points of the memory."
     const apiKey = process.env.OPENAI_API_KEY
     const url = 'https://api.openai.com/v1/chat/completions'
 
@@ -26,9 +28,15 @@ const getQs = async (req, res) => {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${apiKey}`,
             },
-            body,
+            body
         })
         const data = await response.json()
+
+        // Now just straight send to supabase
+        await axios.post('/api/saveMem', { 
+            description: 'andgasdgasd',
+            img: 'none'
+        })
         res.status(200).json({message: data})
     } catch (error) {
         res.status(500).json({ error: error.message })

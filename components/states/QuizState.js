@@ -82,22 +82,21 @@ const QuizState = () => {
         setSubmittedAIAnalysis(true);
         submit([...selectedAnswers, {q: "Tell me more about this.", a: value}])
         console.log(selectedAnswers)
-
     };
 
+    /*
     const handleSaveQ = async (value) => {
-        if (selectedAnswers.length == 3) setSubmittedAIAnalysis(false);
+        if (selectedAnswers.length >= 3) {
+            setSubmittedAIAnalysis(false);
+        }
         else 
         {
             setSelectedAnswers([...selectedAnswers, {q: nextQuestion, a: value}])
             submit([...selectedAnswers, {q: nextQuestion, a: value}])
             setSubmittedAIAnalysis(true);
-        console.log(selectedAnswers)
-
+            console.log(selectedAnswers)
         }
-
-
-    };
+    };*/
 
     // now send selectedAnswers to /api route that will perform an analysis with ChatGPT
     const submit = (answersAI) => {
@@ -118,13 +117,12 @@ const QuizState = () => {
                             <Fade type="late" duration="2s">
                                 <p>Think about a fondful memory, one that you would like to savor forever.</p>
                                 <Fade type="late" duration="6s">
-                                    <div className="mt-8">
-                                        {!submittedAIAnalysis && currentQuestionIndex >= questions.length ? 
-                                        <QuizInput placeholder="Please, tell me more." onSave={handleSave} />
-                                            : submittedAIAnalysis ? 
-                                            <>{nextQuestion}<QuizInput placeholder="..." value="" onSave={handleSaveQ} /></> 
-                                            : 
+                                <div className="mt-8">
+                                        {!submittedAIAnalysis && currentQuestionIndex >= questions.length ? <QuizInput placeholder="Please, tell me more." onSave={handleSave} />
+                                            :
+                                            submittedAIAnalysis ? <span>{nextQuestion}</span> :
                                             <>
+                                            {currentQuestion.question}
                                                 <p className="font-bold text-2xl mb-2.5">{currentQuestion.question}</p>
                                                 <div className="flex justify-center gap-4">
                                                     {
