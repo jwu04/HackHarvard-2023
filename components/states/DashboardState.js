@@ -5,24 +5,20 @@ import Link from "next/link";
 import axios from 'axios';
 
 const DashboardState = () => {
-    const [memories, setMem] = useState([]);
+    const [memories, setMemories] = useState([]);
 
-    const fetchMem = async () => {
-        await axios.get('/api/getMem').then(res => {
-            setMem(JSON.stringify(res.data));
-        }).catch(err => {
-            console.error(err)
-        });
-    };
-    fetchMem();
-    // const memories = [
-    //     { date: "Oct 21", description: "Acidic", img: "memory1.jpg" },
-    //     { date: "Oct 21", description: "Shrooms", img: "memory2.jpg" },
-    //     { date: "Oct 21", description: "Bathed", img: "memory3.jpg" },
-    //     { date: "Oct 21", description: "In", img: "memory4.jpg" },
-    //     { date: "Oct 21", description: "Chocolate", img: "memory5.jpg" },
-    //     { date: "Oct 21", description: "Milk", img: "memory6.jpg" }
-    // ];
+    useEffect(() => {
+        const fetchMemories = async () => {
+            try {
+                const response = await axios.get('/api/getMem');
+                setMemories(response.data); // Update the state with the fetched data
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchMemories(); // Call the async function
+    }, []); // Empty dependency array means this effect runs once after the initial render
 
     return (
         <>
