@@ -89,6 +89,7 @@ const QuizState = () => {
         const fetchQ = async () => {
             await axios.post('/api/getQuestions',{answers: selectedAnswers}).then(res => {
                 setNextQuestion(JSON.stringify(res.data.message));
+                console.log("q")
                 console.log(nextQuestion)
             }).catch(err => {
                 console.error(err)
