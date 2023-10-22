@@ -11,7 +11,9 @@ const generateImage = async (req, res) => {
     const model =
       "stability-ai/stable-diffusion:ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4";
     const input = {
-      prompt: prompt || "a young man, 25, walking along the beach",
+      prompt: prompt,
+      width: 768,
+      height: 576
     };
     const output = await replicate.run(model, { input });
     res.status(200).json(output);
