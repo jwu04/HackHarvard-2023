@@ -50,4 +50,9 @@ npm run dev
 Once that is done, the website should be found at: [localhost:3000/](localhost:3000/). 
 Enjoy remembering!
 ## Screenshots
-TBD
+*Starting the questionnaire*
+![](https://astronic.s-ul.eu/Ld4u22cV)
+*First question *
+![](https://astronic.s-ul.eu/YpTcgDz6)
+*Image generation*
+![](https://astronic.s-ul.eu/ZlsTpNDW)
