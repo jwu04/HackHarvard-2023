@@ -16,7 +16,6 @@ const DashboardState = () => {
     return (
         <>
             <div className="sec-body">
-                <p className="text-center font-bold"><span className="logo">rememory</span><p className="relative left-80 bottom-20 text-lg red-logo">(remember me)</p></p>
                 <div className="flex flex-wrap gap-8">
                     {memories.map((memory, index) => (
                         <div key={index} className="border-2 shadow-2xl border-gray-800 rounded-md py-2 px-8">
@@ -24,10 +23,6 @@ const DashboardState = () => {
                         </div>
                     ))}
                 </div>
-
-                Rememory.
-                Remember me.
-
             </div>
         </>
     )

@@ -1,8 +1,8 @@
-# Re-memory 
+# Rememory 
 Team: Jonathan Wu, Amy Mai, Karar Abed  
 HackHarvard 2023 Submssion
 ## Project Description
-Have you ever wondered what it would be like to turn our dreams, memories, or thoughts into images? That's exactly what **Re-memory** is all about! We leverage the practice of narrative elicitations with ChatGPT to help elders tell a clear and detailed story about their memories. Once the user has completed describing a memory, we utilize Stable Diffusion, a type of generative AI, to bring these abstract memories into a reality. With these tools, we can transform the dreams and thoughts of older people who are experiencing dementia into beautiful visual experiences. 
+Have you ever wondered what it would be like to turn our dreams, memories, or thoughts into images? That's exactly what **Rememory** is all about! We leverage the practice of narrative elicitations with ChatGPT to help elders tell a clear and detailed story about their memories. Once the user has completed describing a memory, we utilize Stable Diffusion, a type of generative AI, to bring these abstract memories into a reality. With these tools, we can transform the dreams and thoughts of older people who are experiencing dementia into beautiful visual experiences. 
 
 Our project does more than just create stunning memories. It actually provides a lot of comfort and healing to the people who have dementia. Plus, it helps us learn a whole lot more about Alzheimer's and dementia, so we can better understand and even find ways to help people who have these conditions. 
 

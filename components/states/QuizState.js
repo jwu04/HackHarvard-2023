@@ -110,14 +110,14 @@ const QuizState = () => {
 
     return (
         <div>
-            <div className="mt-12 text-center">
+            <div className="mt-12 text-center sec-body">
                 {showAnimation ? (
                     <div>
-                        <Fade type="late" duration="2s">
+                        <Fade type="late" duration="0.6s">
                             <p className="font-bold text-xl">Let's get started...</p>
-                            <Fade type="late" duration="3s">
-                                <p>Think of a fondful memory... Think about it for a long time.</p>
-                                <Fade type="late" duration="9s">
+                            <Fade type="late" duration="2s">
+                                <p>Think about a fondful memory, one that you would like to savor forever.</p>
+                                <Fade type="late" duration="6s">
                                     <div className="mt-8">
                                         {!submittedAIAnalysis && currentQuestionIndex >= questions.length ? 
                                         <QuizInput placeholder="Please, tell me more." onSave={handleSave} />
@@ -125,7 +125,7 @@ const QuizState = () => {
                                             <>{nextQuestion}<QuizInput placeholder="..." value="" onSave={handleSaveQ} /></> 
                                             : 
                                             <>
-                                            {currentQuestion.question}
+                                                <p className="font-bold text-2xl mb-2.5">{currentQuestion.question}</p>
                                                 <div className="flex justify-center gap-4">
                                                     {
                                                         currentQuestion.answerChoices.map((choice, index) => (
@@ -145,11 +145,10 @@ const QuizState = () => {
                     </div>
                 ) : (
                     <div>
-                        <p className="inter font-extrabold">CareYaya, where your &nbsp;<span
-                            className="underline">memory</span>&nbsp; comes first.</p>
+                        <p className="inter font-medium sec-body">The brain tends to forget all kinds of information as we age, and to our aid, we have the ability to electronically note memories. When you are ready, click the corresponding button below to embark on a process to create a memory, <i>that will be yours</i>, forever.</p>
                         <button onClick={toggleAnimation}
-                                className="border border-green-800 rounded-xl px-4 transition duration-200 ease-in-out transform hover:scale-105">
-                            <p className="text-sm font-medium">Let's go.</p></button>
+                                className="border border-green-800 rounded-xl px-4 transition duration-200 ease-in-out transform hover:scale-105 mt-3 shadow-xl">
+                            <p className="px-6 py-0.5 text-xl font-bold">Ready</p></button>
                     </div>
                 )}
             </div>
