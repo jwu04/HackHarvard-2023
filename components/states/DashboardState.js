@@ -2,16 +2,27 @@ import React, {useEffect, useState} from 'react';
 import Fade from "../Fade";
 import CustomMemoryButton from "../QuizSelection";
 import Link from "next/link";
+import axios from 'axios';
 
 const DashboardState = () => {
-    const memories = [
-        { date: "Oct 21", description: "Acidic", img: "memory1.jpg" },
-        { date: "Oct 21", description: "Shrooms", img: "memory2.jpg" },
-        { date: "Oct 21", description: "Bathed", img: "memory3.jpg" },
-        { date: "Oct 21", description: "In", img: "memory4.jpg" },
-        { date: "Oct 21", description: "Chocolate", img: "memory5.jpg" },
-        { date: "Oct 21", description: "Milk", img: "memory6.jpg" }
-    ];
+    const [memories, setMem] = useState([]);
+
+    const fetchMem = async () => {
+        await axios.get('/api/getMem').then(res => {
+            setMem(JSON.stringify(res.data));
+        }).catch(err => {
+            console.error(err)
+        });
+    };
+    fetchMem();
+    // const memories = [
+    //     { date: "Oct 21", description: "Acidic", img: "memory1.jpg" },
+    //     { date: "Oct 21", description: "Shrooms", img: "memory2.jpg" },
+    //     { date: "Oct 21", description: "Bathed", img: "memory3.jpg" },
+    //     { date: "Oct 21", description: "In", img: "memory4.jpg" },
+    //     { date: "Oct 21", description: "Chocolate", img: "memory5.jpg" },
+    //     { date: "Oct 21", description: "Milk", img: "memory6.jpg" }
+    // ];
 
     return (
         <>
