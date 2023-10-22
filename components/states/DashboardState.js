@@ -25,8 +25,9 @@ const DashboardState = () => {
             <div className="sec-body">
                 <div className="flex flex-wrap gap-8">
                     {memories.map((memory, index) => (
-                        <div key={index} className="border-2 shadow-2xl border-gray-800 rounded-md py-2 px-8">
+                        <div key={index} className="border-2 shadow-2xl border-gray-800 rounded-md py-2 px-8 ">
                             <p className="font-black text-2xl">{memory.date}</p> <p className="text-xl">{memory.description}</p>
+                            <img src={memory.img}></img>
                         </div>
                     ))}
                 </div>
