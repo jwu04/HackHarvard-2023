@@ -79,12 +79,17 @@
 
 html,
 body {
-    background-color: rgb(227, 226, 226);
+    background-color: #fafafa;
     color: rgb(0, 0, 0);
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
     min-height: 100vh;
     position: relative;
+}
+
+nav {
+    background-color: #ffffff;
+    width: 100%;
 }
 
 .sec-body {
@@ -158,10 +163,9 @@ a:hover {
 }
 
 .logo {
-    font-size: 9rem;
+    font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    color: #000000;
-    text-shadow: #cc4b1c .24rem .42rem
+    color: #0a57b0;
 }
 
 .red-logo {
@@ -170,4 +174,30 @@ a:hover {
 
 .theme-bg {
     background-color: #232323;
+}
+
+input {
+    background: #ffffff;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+}
+
+.footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
 }
