@@ -28,17 +28,14 @@ Install all the required Node.js Dependency in order for this to work
 npm install
 ```
 ### Get API Keys
-You will need two API keys, one from [Replicate](https://replicate.com/explore) and one from [OpenAI](https://openai.com/).  
+You will need four API keys, one from [Replicate](https://replicate.com/explore), two from [Supabase](https://supabase.com/) and one from [OpenAI](https://openai.com/).  
 
-Once you have both keys, navigate to the `next.config.js` file and add corresponding lines to each key. For example, for Replicate API Key:
+Once you have both keys, create a file called `.env.local` and add corresponding lines to each key. For example:
 ```Javascript
-const nextConfig = {
-  ...
-  env: {
-    REPLICATE_API_TOKEN: "r8_*************************************",
-    OPENAI_API_KEY: "sk-************************************************"
-  }
-}
+SUPABASE_URL=paste here
+SUPABASE_ANON_KEY=paste here
+OPENAI_API_KEY=paste here
+REPLICATE_API_TOKEN=paste here
 ```
 ### Build and Start
 1. Once you have done that, make sure that you can compile the program
