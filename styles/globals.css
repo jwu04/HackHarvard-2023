@@ -156,3 +156,18 @@ a {
 a:hover {
     color: darkorange;
 }
+
+.logo {
+    font-size: 9rem;
+    margin-bottom: 0.5rem;
+    color: #000000;
+    text-shadow: #cc4b1c .24rem .42rem
+}
+
+.red-logo {
+    color: crimson;
+}
+
+.theme-bg {
+    background-color: #232323;
+}
